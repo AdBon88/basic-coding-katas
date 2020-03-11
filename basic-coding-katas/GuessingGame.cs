@@ -24,10 +24,12 @@ namespace basic_coding_katas {
                     Console.WriteLine("Lower!");
                 }
                 else
-                    Console.WriteLine("Higher");
+                    Console.WriteLine("Higher!");
 
                 if (guess != lastGuess)
                     guessCount++;
+                else
+                    Console.WriteLine("You just guessed that number, try not counted!");
           
                 lastGuess = guess;
             } while (guess != correctNumber!);
