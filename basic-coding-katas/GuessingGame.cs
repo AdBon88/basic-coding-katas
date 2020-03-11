@@ -23,7 +23,7 @@ namespace basic_coding_katas {
                 if (guess > correctNumber) {
                     Console.WriteLine("Lower!");
                 }
-                else
+                else if (guess < correctNumber)
                     Console.WriteLine("Higher!");
 
                 if (guess != lastGuess)
