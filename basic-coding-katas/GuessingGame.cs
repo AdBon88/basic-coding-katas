@@ -39,3 +39,5 @@ namespace basic_coding_katas {
         }
     }
 }
+
+//ASK WHY I HAD TO ADD THE FILE IN GIT BEFORE EVERY COMMIT

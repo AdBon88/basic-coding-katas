@@ -12,7 +12,8 @@ namespace basic_coding_katas {
             // NumberPrinter.PrintSumOfNumbers2();
             // NumberPrinter.PrintSumOrProduct();
             // TimesTable.PrintTimesTable();
-               GuessingGame.Start();
+            // GuessingGame.Start();
+            LeapYearPrinter.Print();
         }
     }
 }
