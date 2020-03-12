@@ -1,18 +1,48 @@
 ﻿using System;
 namespace basic_coding_katas {
     public class NumberPrinter {
+        const int NumberOfMainMenuOptions = 3;
 
-        public static void PrintSumOfNumbers() {
+        public void Start() {
 
-            int number;
+            DisplayOptions();
+  
+            switch( ReadSelectedOption(NumberOfMainMenuOptions)){
+                case 1:
+                    PrintSumOfRange();
+                    break;
+                case 2:
+                    PrintSumOfMultiplesOfThreeOrFive();
+                    break;
+                case 3:
+                    PrintProductOfRange();
+                    break;
+            }
+        }
 
-            Console.WriteLine("Enter a number:");
-            while (!Int32.TryParse(Console.ReadLine(), out number)) {
-                Console.WriteLine("Please Enter an integer!");
+        private void DisplayOptions() {
+            Console.WriteLine("Select option:");
+            Console.WriteLine("1. Print the sum of all numbers from 1 to n");
+            Console.WriteLine("2. Print the sum of all multiples of 3 or 5 between 1 and n");
+            Console.WriteLine("3. Print the product of all numbers from 1 to n");
+        }
+
+        private int ReadSelectedOption(int numberOfOptions) {
+            int selectedOption;
+
+            while ((!Int32.TryParse(Console.ReadLine(), out selectedOption)) || selectedOption < 1 || selectedOption > numberOfOptions) {
+                Console.WriteLine($"Invalid selection! Please enter a number from 1 to {numberOfOptions}");
             }
 
+            return selectedOption;
+        }
+
+        public void PrintSumOfRange() {
+
+            int n = ReadIntegerInput();
             int sum = 0;
-            for (int i = 1; i <= number; i++) {
+
+            for (int i = 1; i <= n; i++) {
                 sum += i;
             }
 
@@ -20,15 +50,9 @@ namespace basic_coding_katas {
 
         }
 
-        public static void PrintSumOfNumbers2() {
+        private void PrintSumOfMultiplesOfThreeOrFive() {
 
-            int n;
-
-            Console.WriteLine("Enter another number:");
-            while (!Int32.TryParse(Console.ReadLine(), out n)) {
-                Console.WriteLine("Please enter an integer!");
-            }
-
+            int n = ReadIntegerInput();
             int sum = 0;
 
             for (int i = 1; i <= n; i++) {
@@ -36,47 +60,31 @@ namespace basic_coding_katas {
                     sum += i;
             }
 
-            Console.WriteLine($"Sum of 1 to n where n is a multiple of 3 or 5 is {sum}");
+            Console.WriteLine($"Sum of multiples of 3 or 5 in range is: {sum}");
 
         }
 
-        public static void PrintSumOrProduct() {
+        private void PrintProductOfRange() {
+
+            int n = ReadIntegerInput();
+
+            int product = 1;
+            for (int i = 1; i <= n; i++) {
+                product *= i;
+            }
+            Console.WriteLine($"Product is: {product}");
+            
+        }
+
+        private int ReadIntegerInput() {
 
             int n;
-
-            Console.WriteLine("Enter a another number");
-
+            Console.WriteLine("Enter the maximum number:");
             while (!Int32.TryParse(Console.ReadLine(), out n)) {
-                    Console.WriteLine("Please enter an integer!");
+                Console.WriteLine("Please Enter an integer!");
             }
 
-            Console.WriteLine($"For numbers 1 to {n}...");
-            Console.WriteLine($"Enter 1 to calculate the sum or 2 to calculate the product:");
-
-            int selection;
-
-            while ((!Int32.TryParse(Console.ReadLine() , out selection)) && selection != 1 || selection != 2) {
-                Console.WriteLine("Invalid selection! Please enter 1 or 2!");
-            }
-
-            Console.WriteLine($"You entered {selection}");
-
-            if (selection == 1) {
-                int sum = 0;
-
-                for (int i = 1; i <= n; i++) {
-                    sum += i;
-                    Console.WriteLine($"Sum is: {sum}");
-                }
-            }
-            else {
-                int product = 1;
-                for (int i = 1; i <= n; i++) {
-                    product *= i;
-                }
-                Console.WriteLine($"Product is: {product}");
-            }
-
+            return n;
         }
 
     }

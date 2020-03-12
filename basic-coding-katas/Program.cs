@@ -8,12 +8,15 @@ namespace basic_coding_katas {
             // HelloWorld.PrintHelloWorld();
             // NameGreeter.Greet();
             // SpecificNameGreeter.Greet();
-            // NumberPrinter.PrintSumOfNumbers();
-            // NumberPrinter.PrintSumOfNumbers2();
-            // NumberPrinter.PrintSumOrProduct();
+
+            NumberPrinter numberPrinter = new NumberPrinter();
+            numberPrinter.Start();
+
             // TimesTable.PrintTimesTable();
             // GuessingGame.Start();
-            LeapYearPrinter.Print();
+            //LeapYearPrinter.Print();
+
+
         }
     }
 }
