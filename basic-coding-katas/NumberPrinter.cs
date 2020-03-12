@@ -7,7 +7,7 @@ namespace basic_coding_katas {
 
             DisplayOptions();
   
-            switch( ReadSelectedOption(NumberOfMainMenuOptions)){
+            switch(ReadSelectedOption(NumberOfMainMenuOptions)){
                 case 1:
                     PrintSumOfRange();
                     break;
